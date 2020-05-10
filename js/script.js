@@ -67,9 +67,22 @@ function getRandomQuote() {
  * Stores elements of the quote in relevant HTML tags.
  * Which prints messages within the quote-box div in index.html
 
+ * On Second Commit, added the randomBG function to create a randomBG
+ * backgroundColor, and called in the printQuote function so the color
+ * changes in time with the quote change.
+
 ***/
 
+function randomBG () {
+    var a = Math.floor(Math.random() * 256);
+    var b = Math.floor(Math.random() * 256);
+    var c = Math.floor(Math.random() * 256);
+    let randomColor = "rgb(" + a + "," + b + "," + c + ")";
+    return document.body.style.backgroundColor = randomColor;
+}
+
 function printQuote() {
+    randomBG();
     let aQuote = getRandomQuote();
     let aQuoteBase = `<p class="quote">${aQuote.quote}</p>`;
     let aQuoteSource = `<p class="source">${aQuote.source}`;
@@ -84,13 +97,15 @@ function printQuote() {
         fullQuoteHtml += `<span class="year">A Classic</span>`;
       }
       if (aQuote.favorite === 'yes') {
-        fullQuoteHtml += `<span class="year">My Favorite</span>`;
+        fullQuoteHtml += `<span class="year">A Favorite</span>`;
       }
         fullQuoteHtml += `</p>`;
     return document.getElementById('quote-box').innerHTML = fullQuoteHtml;
 }
 
-printQuote();
+window.setInterval(printQuote, 10000);
+
+
 
 /***
  * click event listener for the print quote button
