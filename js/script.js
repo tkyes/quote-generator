@@ -72,8 +72,14 @@ function getRandomQuote() {
 function printQuote() {
     let aQuote = getRandomQuote();
     let aQuoteBase = `<p class="quote">${aQuote.quote}</p>`;
-    let aQuoteSource = `<p class="source">${aQuote.source}</p>`;
+    let aQuoteSource = `<p class="source">${aQuote.source}`;
     let fullQuoteHtml = aQuoteBase + aQuoteSource;
+      if (aQuote.citation != '') {
+        fullQuoteHtml += `<span class="citation">${aQuote.citation}</span>`;
+      }
+      if (aQuote.year != '') {
+        fullQuoteHtml += `<span class="year">${aQuote.year}</span>`;
+      }
     return document.getElementById('quote-box').innerHTML = fullQuoteHtml;
 }
 
