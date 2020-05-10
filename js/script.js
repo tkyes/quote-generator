@@ -80,6 +80,13 @@ function printQuote() {
       if (aQuote.year != '') {
         fullQuoteHtml += `<span class="year">${aQuote.year}</span>`;
       }
+      if (aQuote.classic === 'yes') {
+        fullQuoteHtml += `<span class="year">A Classic</span>`;
+      }
+      if (aQuote.favorite === 'yes') {
+        fullQuoteHtml += `<span class="year">My Favorite</span>`;
+      }
+        fullQuoteHtml += `</p>`;
     return document.getElementById('quote-box').innerHTML = fullQuoteHtml;
 }
 
