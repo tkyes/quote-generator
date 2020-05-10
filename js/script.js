@@ -19,7 +19,7 @@ let quotes = [
     source: `John Steinbeck`,
     citation: `Of Mice and Men`,
     year: `1937`,
-    classic: `yes`
+    tags: `Favorite`
   },
   {
     quote: `Life is to be lived, not controlled; and humanity is won by continuing to play in face of certain defeat.`,
@@ -32,7 +32,7 @@ let quotes = [
     source: `Jack Kerouac`,
     citation: `On the Road`,
     year: `1957`,
-    favorite: `yes`
+    tags: `Classic`
   },
   {
     quote: `We were the people who were not in the papers. We lived in the blank white spaces at the edges of print. It gave us more freedom. We lived in the gaps between the stories.`,
@@ -93,11 +93,8 @@ function printQuote() {
       if (aQuote.year != '') {
         fullQuoteHtml += `<span class="year">${aQuote.year}</span>`;
       }
-      if (aQuote.classic === 'yes') {
-        fullQuoteHtml += `<span class="year">A Classic</span>`;
-      }
-      if (aQuote.favorite === 'yes') {
-        fullQuoteHtml += `<span class="year">A Favorite</span>`;
+      if (aQuote.tags) {
+        fullQuoteHtml += `<span class="tags">${aQuote.tags}</span>`;
       }
         fullQuoteHtml += `</p>`;
     return document.getElementById('quote-box').innerHTML = fullQuoteHtml;
