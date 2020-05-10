@@ -87,10 +87,10 @@ function printQuote() {
     let aQuoteBase = `<p class="quote">${aQuote.quote}</p>`;
     let aQuoteSource = `<p class="source">${aQuote.source}`;
     let fullQuoteHtml = aQuoteBase + aQuoteSource;
-      if (aQuote.citation != '') {
+      if (aQuote.citation) {
         fullQuoteHtml += `<span class="citation">${aQuote.citation}</span>`;
       }
-      if (aQuote.year != '') {
+      if (aQuote.year) {
         fullQuoteHtml += `<span class="year">${aQuote.year}</span>`;
       }
       if (aQuote.tags) {
